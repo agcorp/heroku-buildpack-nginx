@@ -1,3 +1,11 @@
+## v0.8
+
+2017-04-19
+
+* Update nginx to 1.12.0
+* Update PCRE to 8.40
+* Update zlib to 1.2.11
+
 ## v0.7
 
 2016-02-14
