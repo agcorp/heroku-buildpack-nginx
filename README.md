@@ -95,8 +95,8 @@ web: bin/start-nginx
 ```
 
 ```bash
-$ git add Procfile
-$ git commit -m 'Update procfile for NGINX buildpack'
+git add Procfile
+git commit -m 'Update procfile for NGINX buildpack'
 ```
 
 Open App
