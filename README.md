@@ -43,17 +43,6 @@ You can correlate this id with your Heroku router logs:
 at=info method=GET path=/ host=salty-earth-7125.herokuapp.com request_id=e2c79e86b3260b9c703756ec93f8a66d fwd="67.180.77.184" dyno=web.1 connect=1ms service=8ms status=200 bytes=21
 ```
 
-### Language/App Server Agnostic
-
-Nginx-buildpack provides a command named `bin/start-nginx` this command takes another command as an argument. You must pass your app server's startup command to `start-nginx`.
-
-For example, to get NGINX and Unicorn up and running:
-
-```bash
-$ cat Procfile
-web: bin/start-nginx
-```
-
 ### Setting the Worker Processes
 
 You can configure NGINX's `worker_processes` directive via the
@@ -72,10 +61,6 @@ You can provide your own NGINX config by creating a file named `nginx.conf.erb` 
 ### Customizable NGINX Compile Options
 
 See [scripts/build_nginx.sh](scripts/build_nginx.sh) for the build steps. Configuring is as easy as changing the "./configure" options.
-
-### Application/Dyno coordination
-
-The buildpack will not start NGINX until a file has been written to `/tmp/app-initialized`. Since NGINX binds to the dyno's $PORT and since the $PORT determines if the app can receive traffic, you can delay NGINX accepting traffic until your application is ready to handle it. The examples below show how/when you should write the file when working with Unicorn.
 
 ## Setup
 
